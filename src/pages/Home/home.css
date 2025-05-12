@@ -1,0 +1,139 @@
+.home {
+    padding: 2rem 4rem;
+    background-color: #fff;
+    color: #333;
+    font-family: 'Popins', sans-serif;
+    z-index: 1;
+
+    width: 100%;
+    margin: 7px;
+    border-radius: 20px;
+}
+
+.home__hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+}
+
+.home__title {
+    font-size: 2.5rem;
+    color: #7e4bf6;
+    margin-bottom: 1rem;
+}
+
+.home__subtitle {
+    font-size: 1.2rem;
+    max-width: 500px;
+    margin-bottom: 2rem;
+}
+
+.home__cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn--primary {
+    background-color: #a581f9;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn--primary:hover {
+    background-color: #8b6dd9;
+}
+
+.btn--secondary {
+    background-color: white;
+    color: #a581f9;
+    padding: 0.7rem 1.5rem;
+    border: 2px solid #a581f9;
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn--secondary:hover {
+    background-color: #f1e8ff;
+}
+
+.home__image-preview img {
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.home__features {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.features__grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.feature {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    width: 250px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature h3 {
+    color: #7e4bf6;
+    margin-top: 1rem;
+}
+
+.home__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #f3ebff, #e8dffc);
+    border-radius: 20px;
+    margin-top: 4rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.footer__content {
+    flex: 1;
+    min-width: 280px;
+    text-align: left;
+}
+
+.footer__content h2 {
+    color: #7e4bf6;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.footer__content p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+.footer__decoration {
+    flex: 1;
+    text-align: center;
+    min-width: 200px;
+}
+
+.footer__decoration img {
+    max-width: 160px;
+    opacity: 0.9;
+}

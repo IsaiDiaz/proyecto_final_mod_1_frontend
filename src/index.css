@@ -1,0 +1,36 @@
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #7e4bf6;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+body::before {
+  top: 10px;
+  left: 20px;
+  width: 160px;
+  height: 160px;
+  background-color: #4FC3F7;
+}
+
+body::after {
+  bottom: 8px;
+  right: 8px;
+  width: 200px;
+  height: 200px;
+  background-color: #FFF176;
+}

@@ -1,9 +1,9 @@
 import "./navbar.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Calendar, CalendarCheck, Search, LogOut, Menu, X } from "lucide-react";
+import { Calendar, CalendarCheck, Search, LogOut, Menu, X, CheckCircle } from "lucide-react";
 import { logout } from "../../../services/userService";
-X
+
 
 export function Navbar({ selected, setSelected, setStatus, status, searchTerm, setSearchTerm, searchStartDate, setSearchStartDate, searchEndDate, setSearchEndDate, toast, showToast }) {
 
@@ -27,7 +27,10 @@ export function Navbar({ selected, setSelected, setStatus, status, searchTerm, s
                 <div className="navbar__header">
 
                     <div className="navbar__heaeder-title">
+                        <div className="icon-title">
+                        <CheckCircle/>
                         <h1>Do-it</h1>
+                        </div>
                         <p>Administra tus tareas eficientemente</p>
                     </div>
                 </div>

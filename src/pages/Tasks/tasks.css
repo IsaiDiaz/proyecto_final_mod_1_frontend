@@ -1,14 +1,6 @@
 .task-layout{
     display: flex;
     flex-direction: row;
-    width: 100%;
-    height: 100%;
+    justify-content: center;
+    max-width: 2000px;
 }
-
-/* @media (max-width: 768px) {
-    .task-layout {
-        flex-direction: column;
-        align-items: center; 
-        height: auto; 
-    }
-} */

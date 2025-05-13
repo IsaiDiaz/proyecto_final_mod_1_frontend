@@ -1,8 +1,13 @@
 import "./navbar.css";
 import React from "react";
-import { Calendar, CalendarCheck, Search, CalendarSearch } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Calendar, CalendarCheck, Search, LogOut } from "lucide-react";
+import { logout } from "../../../services/userService";
 
-export function Navbar({ selected, setSelected, setStatus, status, searchTerm, setSearchTerm, searchStartDate, setSearchStartDate, searchEndDate, setSearchEndDate }) {
+export function Navbar({ selected, setSelected, setStatus, status, searchTerm, setSearchTerm, searchStartDate, setSearchStartDate, searchEndDate, setSearchEndDate, toast, showToast }) {
+
+    const navigate = useNavigate()
+
     return (
         <div className="navbar">
             <div className="navbar__header">
@@ -35,7 +40,7 @@ export function Navbar({ selected, setSelected, setStatus, status, searchTerm, s
                 <hr />
                 <div className="navbar__body-element">
                     <div className="icon-input">
-                        <span style={{fontSize: 12 + "px"}}>Desde:</span>
+                        <span style={{ fontSize: 12 + "px" }}>Desde:</span>
                         <input
                             type="date"
                             id="search-start-date"
@@ -46,7 +51,7 @@ export function Navbar({ selected, setSelected, setStatus, status, searchTerm, s
                 </div>
                 <div className="navbar__body-element">
                     <div className="icon-input">
-                        <span style={{fontSize: 12 + "px"}} >Hasta:</span>
+                        <span style={{ fontSize: 12 + "px" }} >Hasta:</span>
                         <input
                             type="date"
                             id="search-end-date"
@@ -104,6 +109,27 @@ export function Navbar({ selected, setSelected, setStatus, status, searchTerm, s
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     </div>
+                </div>
+                <hr />
+                <div className="navbar__body-element">
+                    <LogOut />
+                    <button
+                        className={`element__button`}
+                        onClick={() => {
+                            showToast(
+                                "¿Estás seguro que desea salir?",
+                                "error",
+                                "Salir",
+                                () => {
+                                    logout()
+                                    navigate("/login")
+                                }
+                            );
+
+                        }}
+                    >
+                        Cerrar Sesión
+                    </button>
                 </div>
             </div>
         </div>

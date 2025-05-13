@@ -17,7 +17,7 @@ import "./tasksBody.css";
 const TITLE_LIMIT = 25;
 const DESCRIPTION_LIMIT = 300;
 
-const TasksBody = ({ selected, status, searchTerm, searchStartDate, searchEndDate }) => {
+const TasksBody = ({ selected, status, searchTerm, searchStartDate, searchEndDate, toast, showToast }) => {
     const title = selected === "today" ? "Tareas de hoy:" : "Todas las tareas:";
     const dateTimeInputRef = useRef(null);
 
@@ -33,25 +33,11 @@ const TasksBody = ({ selected, status, searchTerm, searchStartDate, searchEndDat
     const [editingDescription, setEditingDescription] = useState("");
     const [editingDate, setEditingDate] = useState("");
 
-    const [toast, setToast] = useState({ 
-        message: "", 
-        type: "", 
-        buttonText: null, 
-        onButtonClick: null 
-    });
-
     const getCurrentDateTimeLocal = () => {
         const now = new Date();
         const offset = now.getTimezoneOffset();
         const localDate = new Date(now.getTime() - offset * 60 * 1000);
         return localDate.toISOString().slice(0, 16);
-    };
-
-    const showToast = (message, type = "success", buttonText = null, onButtonClick = null) => {
-        setToast({ message, type, buttonText, onButtonClick });
-        setTimeout(() => {
-            setToast({ message: "", type: "", buttonText: null, onButtonClick: null });
-        }, 5000);
     };
 
     const handleIconClick = () => {

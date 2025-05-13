@@ -22,6 +22,9 @@ const Register = () => {
 
     const showToast = (message, type = "success", buttonText = null, onButtonClick = null) => {
         setToast({ message, type, buttonText, onButtonClick });
+        setTimeout(() => {
+            setToast({ message: "", type: "", buttonText: null, onButtonClick: null });
+        }, 5000);
     };
 
     const validate = (field, value) => {

@@ -14,7 +14,7 @@ export function Navbar({ selected, setSelected, setStatus, status, searchTerm, s
 
                 <div className="navbar__heaeder-title">
                     <h1>Do-it</h1>
-                    <p>Manage your tasks efficiently</p>
+                    <p>Administra tus tareas eficientemente</p>
                 </div>
             </div>
             <hr />

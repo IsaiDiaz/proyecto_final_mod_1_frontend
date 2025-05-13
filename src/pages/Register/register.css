@@ -1,8 +1,5 @@
-.error-text{
-    display: inline-block;
+.error-text {
     color: red;
-    font-size: small;
-    margin: 0;
-    margin-bottom: 5px;
-    padding: 0;
-}
+    font-size: 0.8rem;
+    margin: -0.5rem 0 0.3rem 0;
+  }

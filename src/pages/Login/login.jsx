@@ -57,7 +57,7 @@ const Login = () => {
                     </div>
                     <div className="icon-input">
                         <Lock />
-                        <input type="password" placeholder="Contraseña" id="password" />
+                        <input type="password" placeholder="Contraseña" id="password" onKeyDown={(e) => e.key === "Enter" && handleLogin()} />
                     </div>
                     <button className="btn--primary" onClick={handleLogin}>Iniciar Sesión</button>
                     <p className="container__body-extra">

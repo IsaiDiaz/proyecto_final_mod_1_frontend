@@ -1,6 +1,5 @@
 
 body {
-  margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
@@ -8,28 +7,29 @@ body {
   background-color: #7e4bf6;
   position: relative;
   font-family: 'Poppins', sans-serif;
+  margin: 0;
 }
 
-body::before,
-body::after {
+.background-blobs::before,
+.background-blobs::after {
   content: '';
-  position: absolute;
+  position: fixed;
   border-radius: 50%;
   z-index: 0;
   pointer-events: none;
 }
 
-body::before {
-  top: 10px;
-  left: 20px;
-  width: 160px;
-  height: 160px;
+.background-blobs::before {
+  top: -80px;
+  left: -80px;
+  width: 180px;
+  height: 180px;
   background-color: #4FC3F7;
 }
 
-body::after {
-  bottom: 8px;
-  right: 8px;
+.background-blobs::after {
+  bottom: -30px;
+  right: -30px;
   width: 200px;
   height: 200px;
   background-color: #FFF176;

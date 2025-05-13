@@ -58,3 +58,47 @@ hr{
     max-width: 70%;
     border-color:  #7e4bf6; 
 }
+
+.navbar__toggle {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100;
+}
+
+.navbar__toggle-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+        margin: 0;
+        border-radius: 0;
+        padding-top: 50px;
+    }
+
+    .navbar--open {
+        transform: translateX(0);
+    }
+
+    .navbar--closed {
+        transform: translateX(-100%);
+    }
+
+    .navbar__toggle {
+        display: block;
+    }
+}
+

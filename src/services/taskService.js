@@ -12,9 +12,9 @@ export const getTodayTasksByUserId = async (status = '', query = '') => {
     return response.data;
 }
 
-export const getTasksByUserId = async (status = '', query = '') => {
+export const getTasksByUserId = async (status = '', query = '', startDate = '', endDate = '') => {
     const response = await apiPrivate.get(`/tasks`, {
-        params: { status, query }
+        params: { status, query, startDate, endDate }
     });
     return response.data;
 };

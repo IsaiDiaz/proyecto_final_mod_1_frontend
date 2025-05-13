@@ -1,8 +1,8 @@
 import "./navbar.css";
 import React from "react";
-import { Calendar, CalendarCheck, Search } from "lucide-react";
+import { Calendar, CalendarCheck, Search, CalendarSearch } from "lucide-react";
 
-export function Navbar({ selected, setSelected, setStatus, status, searchTerm, setSearchTerm }) {
+export function Navbar({ selected, setSelected, setStatus, status, searchTerm, setSearchTerm, searchStartDate, setSearchStartDate, searchEndDate, setSearchEndDate }) {
     return (
         <div className="navbar">
             <div className="navbar__header">
@@ -31,6 +31,29 @@ export function Navbar({ selected, setSelected, setStatus, status, searchTerm, s
                     <button className="element__button" onClick={() => setSelected("all")}>
                         Todas las tareas
                     </button>
+                </div>
+                <hr />
+                <div className="navbar__body-element">
+                    <div className="icon-input">
+                        <span style={{fontSize: 12 + "px"}}>Desde:</span>
+                        <input
+                            type="date"
+                            id="search-start-date"
+                            value={searchStartDate}
+                            onChange={(e) => setSearchStartDate(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <div className="navbar__body-element">
+                    <div className="icon-input">
+                        <span style={{fontSize: 12 + "px"}} >Hasta:</span>
+                        <input
+                            type="date"
+                            id="search-end-date"
+                            value={searchEndDate}
+                            onChange={(e) => setSearchEndDate(e.target.value)}
+                        />
+                    </div>
                 </div>
                 <hr />
                 <div className="navbar__body-element">
@@ -72,14 +95,14 @@ export function Navbar({ selected, setSelected, setStatus, status, searchTerm, s
                 <hr />
                 <div className="navbar__body-element">
                     <div className="icon-input">
-                        <Search/>
-                        <input 
-                            type="text" 
-                            placeholder="Buscar" 
-                            id="task-contain" 
+                        <Search />
+                        <input
+                            type="text"
+                            placeholder="Buscar"
+                            id="task-contain"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            />
+                        />
                     </div>
                 </div>
             </div>

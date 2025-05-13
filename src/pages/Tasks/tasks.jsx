@@ -8,6 +8,8 @@ const Tasks = () => {
     const [selectedView, setSelectedView] = useState("all");
     const [selectedStatus, setStatusFilter] = useState('')
     const [searchTerm, setSearchTerm] = useState('');
+    const [searchStartDate, setSearchStartDate] = useState(null)
+    const [searchEndDate, setSearchEndDate] = useState(null)
 
     return (
         <div className="task-layout">
@@ -18,11 +20,17 @@ const Tasks = () => {
                 status={selectedStatus}
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
+                searchStartDate={searchStartDate}
+                setSearchStartDate={setSearchStartDate}
+                searchEndDate={searchEndDate}
+                setSearchEndDate={setSearchEndDate}
                 />
             <TasksBody 
                 selected={selectedView} 
                 status={selectedStatus}
                 searchTerm={searchTerm}
+                searchStartDate={searchStartDate}
+                searchEndDate={searchEndDate}
                 />
         </div>
     );

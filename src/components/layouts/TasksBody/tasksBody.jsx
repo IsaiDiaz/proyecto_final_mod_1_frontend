@@ -4,8 +4,10 @@ import { getTodayTasksByUserId, getTasksByUserId, createTask, updateTask, update
 import MessageToast from "../../toasts/MessageToast/MessageToast";
 import "./tasksBody.css"
 
-const TasksBody = ({ selected, status, searchTerm }) => {
+const TasksBody = ({ selected, status, searchTerm, searchStartDate, searchEndDate }) => {
     const title = selected === "today" ? "Tareas de hoy:" : "Todas las tareas:";
+    const TITLE_LIMIT = 25;
+    const DESCRIPTION_LIMIT = 300;
     const dateTimeInputRef = useRef(null);
     const [dateTimeValue, setDateTimeValue] = useState(null);
     const [tasks, setTasks] = useState([]);
@@ -20,6 +22,13 @@ const TasksBody = ({ selected, status, searchTerm }) => {
     const [editingDate, setEditingDate] = useState("");
 
     const [toast, setToast] = useState({ message: "", type: "", buttonText: null, onButtonClick: null });
+
+    const getCurrentDateTimeLocal = () => {
+        const now = new Date();
+        const offset = now.getTimezoneOffset();
+        const localDate = new Date(now.getTime() - offset * 60 * 1000);
+        return localDate.toISOString().slice(0, 16); 
+    };
 
     const showToast = (message, type = "success", buttonText = null, onButtonClick = null) => {
         setToast({ message, type, buttonText, onButtonClick });
@@ -50,6 +59,7 @@ const TasksBody = ({ selected, status, searchTerm }) => {
     };
 
     const handleSubmit = async () => {
+
         if (!titleInput.trim()) {
             showToast("Por favor completa el título", "error");
             return;
@@ -71,7 +81,7 @@ const TasksBody = ({ selected, status, searchTerm }) => {
 
             const updatedTasks = selected === "today"
                 ? await getTodayTasksByUserId(status, searchTerm)
-                : await getTasksByUserId(status, searchTerm);
+                : await getTasksByUserId(status, searchTerm, searchStartDate, searchEndDate);
             setTasks(updatedTasks);
         } catch (error) {
             console.error("Error al crear la tarea:", error);
@@ -84,7 +94,7 @@ const TasksBody = ({ selected, status, searchTerm }) => {
             await deleteTask(taskId);
             const updatedTasks = selected === "today"
                 ? await getTodayTasksByUserId(status, searchTerm)
-                : await getTasksByUserId(status, searchTerm);
+                : await getTasksByUserId(status, searchTerm, searchStartDate, searchEndDate);
             setTasks(updatedTasks);
             setExpandedTaskId(null);
             showToast("Tarea eliminada correctamente", "success");
@@ -99,7 +109,7 @@ const TasksBody = ({ selected, status, searchTerm }) => {
             await updateProgress(taskId);
             const updatedTasks = selected === "today"
                 ? await getTodayTasksByUserId(status, searchTerm)
-                : await getTasksByUserId(status, searchTerm);
+                : await getTasksByUserId(status, searchTerm, searchStartDate, searchEndDate);
             setTasks(updatedTasks);
         } catch (err) {
             console.error("Error al actualizar el progreso:", err);
@@ -113,7 +123,7 @@ const TasksBody = ({ selected, status, searchTerm }) => {
                 const data =
                     selected === "today"
                         ? await getTodayTasksByUserId(status, searchTerm)
-                        : await getTasksByUserId(status, searchTerm);
+                        : await getTasksByUserId(status, searchTerm, searchStartDate, searchEndDate);
                 setTasks(data);
             } catch (error) {
                 console.error("Error fetching tasks:", error)
@@ -121,7 +131,7 @@ const TasksBody = ({ selected, status, searchTerm }) => {
         };
 
         fetchTasks();
-    }, [selected, status, searchTerm]);
+    }, [selected, status, searchTerm, searchStartDate, searchEndDate]);
 
     return (
         <>
@@ -144,6 +154,7 @@ const TasksBody = ({ selected, status, searchTerm }) => {
                         placeholder="¿Cuál es tu siguiente tarea?"
                         className="form__input-title"
                         value={titleInput}
+                        maxLength={TITLE_LIMIT}
                         onChange={(e) => setTitleInput(e.target.value)}
                     />
 
@@ -151,6 +162,7 @@ const TasksBody = ({ selected, status, searchTerm }) => {
                         placeholder="Descripción de la tarea (opcional)"
                         className="form__input-description"
                         value={descriptionInput}
+                        maxLength={DESCRIPTION_LIMIT}
                         onChange={(e) => setDescriptionInput(e.target.value)}
                     ></textarea>
 
@@ -159,6 +171,7 @@ const TasksBody = ({ selected, status, searchTerm }) => {
                             <input
                                 ref={dateTimeInputRef}
                                 type="datetime-local"
+                                min={getCurrentDateTimeLocal()}
                                 onChange={handleDateChange}
                                 className="hidden-datetime-input"
                             />
@@ -269,7 +282,7 @@ const TasksBody = ({ selected, status, searchTerm }) => {
                                                                 });
                                                                 const updatedTasks = selected === "today"
                                                                     ? await getTodayTasksByUserId(status, searchTerm)
-                                                                    : await getTasksByUserId(status, searchTerm);
+                                                                    : await getTasksByUserId(status, searchTerm, searchStartDate, searchEndDate);
                                                                 setTasks(updatedTasks);
                                                                 setEditingTaskId(null);
                                                                 setExpandedTaskId(null);

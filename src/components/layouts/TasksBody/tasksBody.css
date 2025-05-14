@@ -18,29 +18,29 @@
     padding: 1rem;
     padding-top: 1.5rem;
 
-    flex-grow: 1; 
-    overflow-y: auto; 
+    flex-grow: 1;
+    overflow-y: auto;
     min-height: 0;
 }
 
 .tasks-body__task-container::-webkit-scrollbar {
-    width: 8px; 
-  }
-  
-  .tasks-body__task-container::-webkit-scrollbar-track {
-    background: transparent; 
-  }
-  
-  .tasks-body__task-container::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.4); 
+    width: 8px;
+}
+
+.tasks-body__task-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.tasks-body__task-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.4);
     border-radius: 10px;
-    border: 2px solid transparent; 
-    background-clip: content-box;  
-  }
-  
-  .tasks-body__task-container::-webkit-scrollbar-thumb:hover {
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+.tasks-body__task-container::-webkit-scrollbar-thumb:hover {
     background-color: rgba(255, 255, 255, 0.6);
-  }
+}
 
 .task {
     background-color: #FFF;
@@ -274,16 +274,21 @@
 }
 
 @keyframes spin-slow {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  .animate-spin-slow {
-    animation: spin-slow 2s linear infinite;
-  }
+    0% {
+        transform: rotate(0deg);
+    }
 
-  @media (max-width: 768px) {
-    .tasks-body{
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 2s linear infinite;
+}
+
+@media (max-width: 768px) {
+    .tasks-body {
         margin: 0;
         border-radius: 0;
         height: 95vh;

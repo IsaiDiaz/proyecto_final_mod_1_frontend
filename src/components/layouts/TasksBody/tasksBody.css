@@ -89,7 +89,6 @@
 }
 
 .task__description-wrapper {
-    width: 100%;
     transition: all 0.3s ease;
     overflow: hidden;
     max-height: 0;
@@ -205,8 +204,7 @@
 }
 
 .form__input-description {
-    width: 100%;
-    max-width: 100%;
+    width: 90%;
     border: none;
     outline: none;
     border-radius: 10px;

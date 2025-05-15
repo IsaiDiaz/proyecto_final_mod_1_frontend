@@ -110,14 +110,16 @@ const TasksBody = ({ selected, status, searchTerm, searchStartDate, searchEndDat
 
     const handleProgressUpdate = async (taskId) => {
         try {
-            await updateProgress(taskId);
+            const response = await updateProgress(taskId);
             const updatedTasks = selected === "today"
                 ? await getTodayTasksByUserId(status, searchTerm)
                 : await getTasksByUserId(status, searchTerm, searchStartDate, searchEndDate);
             setTasks(updatedTasks);
+            showToast(response.message, "success");
         } catch (err) {
-            console.error("Error al actualizar el progreso:", err);
-        }
+            console.error("Error al actualizar el progreso:", err.response.data.message);
+            showToast(err.response.data.message, "error");
+        } 
     };
 
     useEffect(() => {
@@ -131,6 +133,7 @@ const TasksBody = ({ selected, status, searchTerm, searchStartDate, searchEndDat
                 setTasks(data);
             } catch (error) {
                 console.error("Error fetching tasks:", error)
+                showToast(err.response.data.message, "error");
             }
         };
 

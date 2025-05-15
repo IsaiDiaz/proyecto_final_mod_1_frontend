@@ -1,12 +1,79 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🖥️ Do-it Frontend
 
-Currently, two official plugins are available:
+This is the frontend application for **Do-it**, a task management system designed to help users efficiently manage their daily and overall tasks. Built with React and Vite, it offers a responsive and intuitive user interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Task Management**: Create, edit, delete, and mark tasks as completed.
+- **Filtering & Search**: Filter tasks by status (pending, in-progress, done) and search by keywords or date range.
+- **Responsive Design**: Ensures usability across various devices.
+- **Interactive UI**: Expandable task details and real-time feedback with toast notifications.
+
+---
+
+## 🛠️ Tech Stack
+
+- **React**: Frontend library for building user interfaces.
+- **Vite**: Development server and build tool.
+- **React Router DOM**: Routing and navigation.
+- **Axios**: HTTP client for API requests.
+- **Lucide React**: Icon library for UI elements.
+
+---
+
+## 🧑‍💻 Getting Started
+
+### Prerequisites
+
+- **Node.js** (v14 or higher)
+- **npm** (v6 or higher)
+
+### Installation
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/IsaiDiaz/proyecto_final_mod_1_frontend
+   cd proyecto_final_mod_1_frontend
+   ```
+
+2. **Install dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**:
+
+   ```bash
+   npm run dev
+   ```
+
+   The application will be available at `http://localhost:5173`.
+
+---
+
+## 🏗️ Build for Production
+
+To create an optimized production build:
+
+```bash
+npm run build
+```
+
+The output will be in the `dist/` directory.
+
+---
+
+## 🔄 Preview Production Build
+
+To preview the production build locally:
+
+```bash
+npm run preview
+```
+
+---
